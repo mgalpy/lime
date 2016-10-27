@@ -2262,9 +2262,11 @@ class Progress extends haxe.io.Output {
 	function bytes(n) {
 		cur += n;
 		if( max == null )
-			Sys.print(cur+" bytes\r");
+			//override default
+			//Sys.print(cur+" bytes\r");
 		else
-			Sys.print(cur+"/"+max+" ("+Std.int((cur*100.0)/max)+"%)\r");
+			//override default
+			//Sys.print(cur+"/"+max+" ("+Std.int((cur*100.0)/max)+"%)\r");
 	}
 	
 	public override function writeByte(c) {
