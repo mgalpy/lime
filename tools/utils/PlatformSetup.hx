@@ -757,18 +757,22 @@ class PlatformSetup {
 				
 			}
 			
-			downloadFile (downloadPath);
+			//override default - downloading outside this process
+			//downloadFile (downloadPath);
 			
 			//override default
 			var path = defaultInstallPath; //unescapePath (CLIHelper.param ("Output directory [" + defaultInstallPath + "]"));
 
-			path = createPath (path, defaultInstallPath);
+			//override default - downloading outside this process
+			//path = createPath (path, defaultInstallPath);
 			
-			extractFile (Path.withoutDirectory (downloadPath), path, ignoreRootFolder);
+			//override default - downloading outside this process
+			//extractFile (Path.withoutDirectory (downloadPath), path, ignoreRootFolder);
 			
 			if (PlatformHelper.hostPlatform != Platform.WINDOWS) {
 				
-				ProcessHelper.runCommand ("", "chmod", [ "-R", "777", path ], false);
+				//override default - downloading outside this process
+				//ProcessHelper.runCommand ("", "chmod", [ "-R", "777", path ], false);
 				
 			}
 			
