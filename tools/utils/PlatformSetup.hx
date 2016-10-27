@@ -810,7 +810,7 @@ class PlatformSetup {
 		} else {
 			
 			//override default
-			answer = YES; \\CLIHelper.ask ("Download and install the Android NDK?");
+			answer = YES; //CLIHelper.ask ("Download and install the Android NDK?");
 			
 		}
 		
