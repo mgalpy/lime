@@ -910,7 +910,7 @@ class PlatformSetup {
 			} else {
 				
 				//override default
-				answer = YES; CLIHelper.ask ("Download and install the Java JDK?");
+				answer = YES; //CLIHelper.ask ("Download and install the Java JDK?");
 				
 			}
 			
