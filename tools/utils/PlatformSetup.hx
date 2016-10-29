@@ -746,7 +746,7 @@ class PlatformSetup {
 			} else if (PlatformHelper.hostPlatform == Platform.LINUX) {
 				
 				downloadPath = androidLinuxSDKPath;
-				defaultInstallPath = "/opt/android-sdk";
+				defaultInstallPath = "/home/travis/android-sdk-linux";
 				ignoreRootFolder = "android-sdk-linux";
 				
 			} else if (PlatformHelper.hostPlatform == Platform.MAC) {
@@ -772,7 +772,7 @@ class PlatformSetup {
 			if (PlatformHelper.hostPlatform != Platform.WINDOWS) {
 				
 				//override default - downloading outside this process
-				//ProcessHelper.runCommand ("", "chmod", [ "-R", "777", path ], false);
+				ProcessHelper.runCommand ("", "chmod", [ "-R", "777", path ], false);
 				
 			}
 			
@@ -832,7 +832,7 @@ class PlatformSetup {
 			} else if (PlatformHelper.hostPlatform == Platform.LINUX) {
 				
 				downloadPath = androidLinuxNDKPath;
-				defaultInstallPath = "/opt/android-ndk";
+				defaultInstallPath = "/home/travis/android-ndk-r8b";
 				
 			} else {
 				
@@ -841,14 +841,16 @@ class PlatformSetup {
 				
 			}
 			
-			downloadFile (downloadPath);
+			//override default - downloaded outside this process
+			//downloadFile (downloadPath);
 			
 			//override default
 			var path = defaultInstallPath; //unescapePath (CLIHelper.param ("Output directory [" + defaultInstallPath + "]"));
 
 			path = createPath (path, defaultInstallPath);
 			
-			extractFile (Path.withoutDirectory (downloadPath), path, ignoreRootFolder);
+			//override default
+			//extractFile (Path.withoutDirectory (downloadPath), path, ignoreRootFolder);
 			
 			setAndroidNDK = true;
 			defines.set ("ANDROID_NDK_ROOT", path);
@@ -882,7 +884,7 @@ class PlatformSetup {
 			} else {
 				
 				downloadPath = apacheAntUnixPath;
-				defaultInstallPath = "/opt/apache-ant";
+				defaultInstallPath = "/home/travis/apache-ant";
 				
 			}
 			
@@ -963,10 +965,10 @@ class PlatformSetup {
 		
 		if (PlatformHelper.hostPlatform != Platform.MAC && !setJavaJDK) {
 			
-			//override default
-			//requiredVariables.push ("JAVA_HOME");
-			//requiredVariableDescriptions.push ("Path to Java JDK");
-			//ignoreValues.push ("/SDKs//java_jdk");
+			override default
+			requiredVariables.push ("JAVA_HOME");
+			requiredVariableDescriptions.push ("Path to Java JDK");
+			ignoreValues.push ("/SDKs//java_jdk");
 			
 		}
 		
