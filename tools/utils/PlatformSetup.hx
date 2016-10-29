@@ -965,9 +965,10 @@ class PlatformSetup {
 		
 		if (PlatformHelper.hostPlatform != Platform.MAC && !setJavaJDK) {
 			
-			requiredVariables.push ("JAVA_HOME");
-			requiredVariableDescriptions.push ("Path to Java JDK");
-			ignoreValues.push ("/SDKs//java_jdk");
+			//override default
+			//requiredVariables.push ("JAVA_HOME");
+			//requiredVariableDescriptions.push ("Path to Java JDK");
+			//ignoreValues.push ("/SDKs//java_jdk");
 			
 		}
 		
